@@ -1,0 +1,45 @@
+:root {
+  --bg-color: #8cc461;
+  --rules-bg-color: #004429;
+  --rock-color: #0074b6;
+  --scissors-color: #bd00ff;
+  --paper-color: #ffa943;
+  --text-light: #ffffff;
+  --text-dark: #111010;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: white;
+  max-width: 1100px;
+  margin: auto;
+}
+
+main {
+  height: 90vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button__div {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+
+.button__div :first-child {
+  margin-right: 1rem;
+}
