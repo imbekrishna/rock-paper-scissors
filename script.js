@@ -47,7 +47,7 @@ function startGame(e) {
     JSON.stringify({ userSelects, pcSelects, winner })
   );
 
-  window.location.href="game.html"
+  window.location,href = window.location + "/game.html"
 
   // window.location.assign(
   //   `${window.location.origin}/game.html`
