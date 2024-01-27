@@ -47,9 +47,12 @@ function startGame(e) {
     JSON.stringify({ userSelects, pcSelects, winner })
   );
 
-  window.location.assign(
-    `${window.location.origin}/game.html`
-  );
+  window.location.href="game.html"
+
+  // window.location.assign(
+  //   `${window.location.origin}/game.html`
+  // );
+
 }
 
 function getPCSelection() {
