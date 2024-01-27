@@ -47,8 +47,12 @@ function startGame(e) {
     JSON.stringify({ userSelects, pcSelects, winner })
   );
 
-  window.location.href =
+  let url =
     window.location.href.split("/").slice(0, -1).join("/") + "/game.html";
+
+  alert(url)
+
+  window.location.assign(url)
 
   // This works with live server but not with github
   // window.location.assign(`${window.location.origin}/game.html`);
