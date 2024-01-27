@@ -47,10 +47,10 @@ function startGame(e) {
     JSON.stringify({ userSelects, pcSelects, winner })
   );
 
+// works everywhere
+
   let url =
     window.location.href.split("/").slice(0, -1).join("/") + "/game.html";
-
-  alert(url)
 
   window.location.assign(url)
 
