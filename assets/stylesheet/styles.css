@@ -27,6 +27,8 @@ body {
 }
 
 main {
+  margin-block: 1em;
+  /* background-color: #fff; */
   height: 90vh;
   display: flex;
   justify-content: space-evenly;
@@ -68,7 +70,7 @@ button,
 
 .btn__filled {
   background-color: var(--text-light);
-  font-weight: 600;
+  font-weight: 800;
   padding: 0.5rem 2rem;
   color: #6b6b6b;
 }
@@ -135,6 +137,13 @@ button:hover,
 /* #endregion */
 
 /* #region Game start div */
+.game__start {
+  display: flex;
+  height: 100%;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
 
 #game-start-div .rps_img__container {
   position: absolute;
@@ -153,6 +162,12 @@ button:hover,
 #game-start-div .scissors {
   top: -40px;
   right: -40px;
+}
+
+@media screen and (min-width: 800px) {
+  #game-start-div {
+    height: initial;
+  }
 }
 
 /* #endregion */
@@ -184,6 +199,7 @@ button:hover,
 .game__action {
   text-align: center;
   order: 3;
+  margin-top: 2.5rem;
 }
 
 .game__action .btn {
@@ -192,12 +208,12 @@ button:hover,
 }
 
 .game__action > div > :first-child {
-  font-size: 3rem;
+  font-size: 2.3rem;
   font-weight: bold;
   letter-spacing: 0.3rem;
 }
 .game__action > div > :last-child {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 0.3rem;
 }
@@ -234,17 +250,17 @@ button:hover,
   background-color: rgba(59, 103, 32, 1);
 }
 
-#user__choice__div .first__ring.won::before{
-    content: "YOU PICKED";
-    position: absolute;
-    bottom: -25px;
-    font-weight: bold;
+#user__choice__div .first__ring::after {
+  content: "YOU PICKED";
+  position: absolute;
+  top: -20px;
+  font-weight: bold;
 }
-#pc__choice__div .first__ring.won::before{
-    content: "PC PICKED";
-    position: absolute;
-    bottom: -25px;
-    font-weight: bold;
+#pc__choice__div .first__ring::before {
+  content: "PC PICKED";
+  position: absolute;
+  bottom: -20px;
+  font-weight: bold;
 }
 
 .second__ring span {
@@ -255,12 +271,12 @@ button:hover,
   font-weight: bold;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   .game__status {
     flex-direction: row;
   }
 
-  .rps_img__container {
+  #game-result-div .rps_img__container {
     width: 125px;
     height: 125px;
   }
@@ -283,13 +299,29 @@ button:hover,
     height: 200px;
   }
 
-  .second__ring span{
+  .second__ring span {
     display: inline-block;
   }
 
-  #user__choice__div .first__ring.won::before,
-  #pc__choice__div .first__ring.won::before
-  {
+  .game__action {
+    margin-top: 0;
+  }
+
+  
+.game__action > div > :first-child {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+  }
+  .game__action > div > :last-child {
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+  }
+  
+
+  #user__choice__div .first__ring::after,
+  #pc__choice__div .first__ring::before {
     display: none;
   }
 
@@ -356,7 +388,7 @@ button:hover,
   font-weight: bold;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   .score__board {
     flex-direction: row;
     justify-content: space-between;
@@ -365,6 +397,12 @@ button:hover,
     text-align: initial;
     font-size: 2.5rem;
   }
+
+  .score__card {
+    max-width: 150px;
+    aspect-ratio: 1;
+  }
+
   .score__card span:first-child {
     font-size: 1.2rem;
   }

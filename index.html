@@ -28,21 +28,23 @@
         </div>
       </div>
 
-      <div id="game-start-div" class="rock_paper_scissor__div">
-        <svg class="rps__bg" height="150" width="200">
-          <polygon
-            points="210 10, 10 10, 110 150"
-            style="fill: none; stroke: #252525AF; stroke-width: 10"
-          />
-        </svg>
-        <div data-name="rock" class="rps_img__container rock">
-          <img src="assets/img/rock.png" alt="rock" />
-        </div>
-        <div data-name="scissors" class="rps_img__container scissors">
-          <img src="assets/img/scissors.png" alt="scissors" />
-        </div>
-        <div data-name="paper" class="rps_img__container paper">
-          <img src="assets/img/paper.png" alt="paper" />
+      <div id="game-start-div" class="game__start">
+        <div class="rock_paper_scissor__div">
+          <svg class="rps__bg" height="150" width="200">
+            <polygon
+              points="210 10, 10 10, 110 150"
+              style="fill: none; stroke: #252525af; stroke-width: 10"
+            />
+          </svg>
+          <div data-name="rock" class="rps_img__container rock">
+            <img src="assets/img/rock.png" alt="rock" />
+          </div>
+          <div data-name="scissors" class="rps_img__container scissors">
+            <img src="assets/img/scissors.png" alt="scissors" />
+          </div>
+          <div data-name="paper" class="rps_img__container paper">
+            <img src="assets/img/paper.png" alt="paper" />
+          </div>
         </div>
       </div>
 
@@ -85,11 +87,12 @@
           </div>
         </div>
       </div>
-      
     </main>
     <div class="button__div">
-      <button id="rules__btn" class="action__btn">RULES</button>
+      <button id="rules__btn">RULES</button>
+      <a id="win__page__link" class="btn" href="hurray.html">NEXT</a>
     </div>
+
     <aside id="rules__container">
       <div>
         <h2>Game Rules</h2>
@@ -115,6 +118,6 @@
     </aside>
 
     <script src="./script.js"></script>
-    <script src="./game.js"></script>
+    <!-- <script src="./game.js"></script> -->
   </body>
 </html>

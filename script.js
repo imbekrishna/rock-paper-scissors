@@ -14,9 +14,19 @@ const rpsButtons = document.querySelectorAll(".rps_img__container");
 const gameStartDiv = document.querySelector("#game-start-div");
 const gameResultDiv = document.querySelector("#game-result-div");
 
+// Game result div components
+
+const userPickDiv = document.getElementById("user__pick");
+const pcPickDiv = document.getElementById("pc__pick");
+const winStatusSpan = document.getElementById("win__status");
+const gameActionDiv = document.querySelector(".game__action > div");
+const winPageLink = document.getElementById("win__page__link");
+const replayButton = document.querySelector(".game__action > a");
+
 // handle localStorage
 let rawScore = localStorage.getItem(LSKEY);
 let score;
+let winningRings;
 
 if (!rawScore) {
   let zeroScore = { user: 0, pc: 0 };
@@ -45,23 +55,13 @@ function startGame(e) {
 
   saveScore(score);
 
-  sessionStorage.setItem(
-    LSKEY,
-    JSON.stringify({ userSelects, pcSelects, winner })
-  );
-
-  // works everywhere
-
-  // let url =
-  //   window.location.href.split("/").slice(0, -1).join("/") + "/game.html";
-
-  // window.location.assign(url)
-
-  // This works with live server but not with github
-  // window.location.assign(`${window.location.origin}/game.html`);
+  userScore.innerText = score.user;
+  computerScore.innerText = score.pc;
 
   gameStartDiv.classList.add("hidden");
   gameResultDiv.classList.remove("hidden");
+
+  showWinner({ userSelects, pcSelects, winner });
 }
 
 function getPCSelection() {
@@ -103,4 +103,38 @@ closeRulesBtn.addEventListener("click", toggleRules);
 
 function toggleRules(e) {
   document.getElementById("rules__container").classList.toggle("show__rules");
+}
+
+function showWinner(gameResult) {
+  userPickDiv.innerHTML = `<div class="rps_img__container ${gameResult.userSelects}">
+    <img src="assets/img/${gameResult.userSelects}.png" alt="${gameResult.userSelects}" />
+  </div>`;
+
+  pcPickDiv.innerHTML = `<div class="rps_img__container ${gameResult.pcSelects}">
+    <img src="assets/img/${gameResult.pcSelects}.png" alt="${gameResult.pcSelects}" />
+  </div>`;
+
+  if (gameResult.winner === "user") {
+    winningRings = document.querySelectorAll(
+      '#user__choice__div  div[class*="__ring"]'
+    );
+    winStatusSpan.innerText = "WIN";
+    winPageLink.style.display = "inline-block";
+  } else if (gameResult.winner === "pc") {
+    winningRings = document.querySelectorAll(
+      '#pc__choice__div  div[class*="__ring"]'
+    );
+    winStatusSpan.innerText = "LOST";
+  } else if (gameResult.winner === "tied") {
+    document.querySelector(".game__action > div").innerHTML = `
+  <div>
+    <p>TIE UP</p>
+  </div>`;
+
+    replayButton.textContent = "REPLAY";
+  }
+
+  if (winningRings) {
+    winningRings.forEach((ring) => ring.classList.add("won"));
+  }
 }
