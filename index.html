@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/stylesheet/index.css" />
+    <link rel="stylesheet" href="assets/stylesheet/styles.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
@@ -27,7 +27,8 @@
           </div>
         </div>
       </div>
-      <div class="rock_paper_scissor__div">
+
+      <div id="game-start-div" class="rock_paper_scissor__div">
         <svg class="rps__bg" height="150" width="200">
           <polygon
             points="210 10, 10 10, 110 150"
@@ -44,6 +45,47 @@
           <img src="assets/img/paper.png" alt="paper" />
         </div>
       </div>
+
+      <div id="game-result-div" class="hidden">
+        <div class="game__status">
+          <div id="user__choice__div">
+            <div class="first__ring circle">
+              <div class="second__ring circle">
+                <div class="third__ring circle">
+                  <div id="user__pick" class="player__pick">
+                    <div class="rps_img__container scissors">
+                      <img src="assets/img/scissors.png" alt="scissors" />
+                    </div>
+                  </div>
+                </div>
+                <span>YOU PICKED</span>
+              </div>
+            </div>
+          </div>
+          <div class="game__action">
+            <div>
+              <p>YOU <span id="win__status">WIN</span></p>
+              <p>AGAINST PC</p>
+            </div>
+            <a href="index.html" class="btn btn__filled">PLAY AGAIN</a>
+          </div>
+          <div id="pc__choice__div">
+            <div class="first__ring circle">
+              <div class="second__ring circle">
+                <div class="third__ring circle">
+                  <div id="pc__pick" class="player__pick">
+                    <div class="rps_img__container paper">
+                      <img src="assets/img/paper.png" alt="paper" />
+                    </div>
+                  </div>
+                </div>
+                <span>PC PICKED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </main>
     <div class="button__div">
       <button id="rules__btn" class="action__btn">RULES</button>
@@ -73,5 +115,6 @@
     </aside>
 
     <script src="./script.js"></script>
+    <script src="./game.js"></script>
   </body>
 </html>

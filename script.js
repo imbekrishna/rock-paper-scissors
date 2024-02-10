@@ -11,6 +11,9 @@ const closeRulesBtn = document.querySelector(".aside__close");
 
 const rpsButtons = document.querySelectorAll(".rps_img__container");
 
+const gameStartDiv = document.querySelector("#game-start-div");
+const gameResultDiv = document.querySelector("#game-result-div");
+
 // handle localStorage
 let rawScore = localStorage.getItem(LSKEY);
 let score;
@@ -47,15 +50,18 @@ function startGame(e) {
     JSON.stringify({ userSelects, pcSelects, winner })
   );
 
-// works everywhere
+  // works everywhere
 
-  let url =
-    window.location.href.split("/").slice(0, -1).join("/") + "/game.html";
+  // let url =
+  //   window.location.href.split("/").slice(0, -1).join("/") + "/game.html";
 
-  window.location.assign(url)
+  // window.location.assign(url)
 
   // This works with live server but not with github
   // window.location.assign(`${window.location.origin}/game.html`);
+
+  gameStartDiv.classList.add("hidden");
+  gameResultDiv.classList.remove("hidden");
 }
 
 function getPCSelection() {

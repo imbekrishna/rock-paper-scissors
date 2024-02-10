@@ -1,0 +1,446 @@
+/* #region General styles */
+
+:root {
+  --bg-color: #8cc461;
+  --rules-bg-color: #004429;
+  --rock-color: #0074b6;
+  --scissors-color: #bd00ff;
+  --paper-color: #ffa943;
+  --text-light: #ffffff;
+  --text-dark: #111010;
+  --ff-primary: "Roboto", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+
+body {
+  font-family: var(--ff-primary);
+  background-color: var(--bg-color);
+  color: var(--text-light);
+  max-width: 1100px;
+  margin: auto;
+}
+
+main {
+  height: 90vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* #endregion */
+
+/* #region default button styles */
+
+/* Rules and next button */
+
+.button__div {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+
+.button__div :first-child {
+  margin-right: 1rem;
+}
+
+button,
+.btn {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 2px solid var(--text-light);
+  border-radius: 8px;
+  color: var(--text-light);
+  font-weight: bold;
+  letter-spacing: 0.12rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.219);
+  transition: all 0.05s;
+}
+
+.btn__filled {
+  background-color: var(--text-light);
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  color: #6b6b6b;
+}
+
+.button__div a.btn {
+  display: none;
+}
+
+button:hover,
+.btn:hover {
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.281);
+}
+
+/* #endregion */
+
+/* #region rock paper scissors base styles */
+.rps_img__container {
+  background-color: var(--text-light);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5),
+    inset 0 0 10px 1px rgba(0, 0, 0, 0.5);
+
+  transition: all 0.05;
+}
+.rps_img__container > img {
+  height: 50px;
+  width: auto;
+  pointer-events: none;
+}
+
+.rock {
+  border: 10px solid var(--rock-color);
+}
+
+.paper {
+  border: 10px solid var(--paper-color);
+}
+
+.scissors {
+  border: 10px solid var(--scissors-color);
+}
+
+.rps_img__container:hover {
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.7),
+    inset 0 0 10px 1px rgba(0, 0, 0, 0.7);
+}
+
+.rock_paper_scissor__div {
+  height: 150px;
+  width: 200px;
+  position: relative;
+}
+
+.rps__bg {
+  position: absolute;
+  left: -10px;
+}
+
+/* #endregion */
+
+/* #region Game start div */
+
+#game-start-div .rps_img__container {
+  position: absolute;
+}
+
+#game-start-div .rock {
+  top: -40px;
+  left: -40px;
+}
+
+#game-start-div .paper {
+  bottom: -50px;
+  right: 50px;
+}
+
+#game-start-div .scissors {
+  top: -40px;
+  right: -40px;
+}
+
+/* #endregion */
+
+/* #region Game result div */
+
+#game-result-div {
+  height: 100%;
+  margin-top: 2rem;
+}
+
+.game__status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  /* column-gap: 10rem; */
+}
+
+.player__pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+  border-radius: 50%;
+}
+
+.game__action {
+  text-align: center;
+  order: 3;
+}
+
+.game__action .btn {
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+.game__action > div > :first-child {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.3rem;
+}
+.game__action > div > :last-child {
+  font-size: 1.7rem;
+  font-weight: bold;
+  letter-spacing: 0.3rem;
+}
+
+.circle {
+  border-radius: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.first__ring {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+.second__ring {
+  width: 130px;
+  height: 130px;
+}
+.third__ring {
+  width: 120px;
+  height: 120px;
+}
+
+.first__ring.won {
+  background-color: rgba(46, 154, 37, 0.39);
+}
+
+.second__ring.won {
+  background-color: rgba(29, 168, 43, 0.79);
+}
+
+.third__ring.won {
+  background-color: rgba(59, 103, 32, 1);
+}
+
+#user__choice__div .first__ring.won::before{
+    content: "YOU PICKED";
+    position: absolute;
+    bottom: -25px;
+    font-weight: bold;
+}
+#pc__choice__div .first__ring.won::before{
+    content: "PC PICKED";
+    position: absolute;
+    bottom: -25px;
+    font-weight: bold;
+}
+
+.second__ring span {
+  display: none;
+  position: absolute;
+  top: 3%;
+  letter-spacing: 0.2rem;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+  .game__status {
+    flex-direction: row;
+  }
+
+  .rps_img__container {
+    width: 125px;
+    height: 125px;
+  }
+
+  .game__action {
+    order: initial;
+  }
+
+  .first__ring {
+    width: 300px;
+    height: 300px;
+  }
+  .second__ring {
+    position: relative;
+    width: 250px;
+    height: 250px;
+  }
+  .third__ring {
+    width: 200px;
+    height: 200px;
+  }
+
+  .second__ring span{
+    display: inline-block;
+  }
+
+  #user__choice__div .first__ring.won::before,
+  #pc__choice__div .first__ring.won::before
+  {
+    display: none;
+  }
+
+  #game-result-div {
+    height: fit-content;
+  }
+}
+
+/* #endregion */
+
+/* #region Scoreboard */
+
+.score__board {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid var(--text-light);
+  border-radius: 15px;
+}
+
+.game__title {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.15rem;
+  text-align: center;
+}
+
+.score__counter {
+  display: flex;
+  column-gap: 1rem;
+  flex: 1;
+  justify-content: end;
+}
+
+.score__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--text-light);
+  color: var(--text-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  min-width: 100px;
+  width: 100%;
+  aspect-ratio: 1;
+  row-gap: 0.5rem;
+}
+
+.score__card span:first-child {
+  text-align: center;
+  color: #252525dd;
+  font-weight: 500;
+  letter-spacing: 0.12rem;
+  font-size: 1rem;
+}
+
+.score__card span:last-child {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+  .score__board {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .game__title {
+    text-align: initial;
+    font-size: 2.5rem;
+  }
+  .score__card span:first-child {
+    font-size: 1.2rem;
+  }
+
+  .score__card span:last-child {
+    font-size: 4rem;
+  }
+}
+
+/* #endregion */
+
+.hidden {
+  display: none;
+}
+
+/* #region Pop up */
+
+/* Rules popup */
+aside {
+  position: fixed;
+  bottom: -100%;
+  right: -100%;
+  max-width: 300px;
+  background-color: var(--rules-bg-color);
+  padding: 2rem 3rem;
+  text-align: center;
+  border: 5px solid var(--text-light);
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.show__rules {
+  bottom: 8%;
+  right: 3%;
+}
+
+aside h2 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+aside ul {
+  text-align: justify;
+  list-style-type: square;
+  font-size: 0.9rem;
+}
+
+aside ul > * + * {
+  margin-top: 0.5rem;
+}
+
+aside ul li::marker {
+  color: var(--paper-color);
+  font-size: 1.5rem;
+}
+
+aside > div {
+  position: relative;
+}
+
+.aside__close {
+  position: absolute;
+  padding: 0.5rem;
+  background-color: red;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border: 3px solid var(--text-light);
+  top: -8%;
+  right: -8%;
+  color: var(--text-light);
+}
+
+/* #endregion */

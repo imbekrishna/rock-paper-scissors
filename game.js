@@ -1,11 +1,11 @@
 // let params = new URLSearchParams(document.location.search);
 // console.log(params.get('winner'));
 
-if (!sessionStorage.getItem(LSKEY)) {
-  alert("Please play a game!");
-  window.location.assign(`${window.location.origin}/index.html`);
-  throw new Error("Take your turn on main page!");
-}
+// if (!sessionStorage.getItem(LSKEY)) {
+//   alert("Please play a game!");
+//   window.location.assign(`${window.location.origin}/index.html`);
+//   throw new Error("Take your turn on main page!");
+// }
 
 const gameResult = JSON.parse(sessionStorage.getItem(LSKEY));
 
