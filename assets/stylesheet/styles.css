@@ -75,10 +75,6 @@ button,
   color: #6b6b6b;
 }
 
-.button__div a.btn {
-  display: none;
-}
-
 button:hover,
 .btn:hover {
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.281);
@@ -307,8 +303,7 @@ button:hover,
     margin-top: 0;
   }
 
-  
-.game__action > div > :first-child {
+  .game__action > div > :first-child {
     font-size: 3rem;
     font-weight: bold;
     letter-spacing: 0.3rem;
@@ -318,7 +313,6 @@ button:hover,
     font-weight: bold;
     letter-spacing: 0.3rem;
   }
-  
 
   #user__choice__div .first__ring::after,
   #pc__choice__div .first__ring::before {
@@ -414,10 +408,6 @@ button:hover,
 
 /* #endregion */
 
-.hidden {
-  display: none;
-}
-
 /* #region Pop up */
 
 /* Rules popup */
@@ -482,3 +472,37 @@ aside > div {
 }
 
 /* #endregion */
+
+/* #region Hurray game won */
+
+.hurray__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+.hurray__container h1 {
+  font-size: 5rem;
+  letter-spacing: 0.2rem;
+}
+
+.hurray__container p {
+  font-size: 2.4rem;
+}
+
+.hurray__div {
+  min-width: 400px;
+  min-height: 300px;
+}
+
+.hurray__img {
+  width: 90%;
+  transition: all 0.2s ease-in-out;
+}
+
+/* #endregion */
+
+.hidden {
+  display: none;
+}

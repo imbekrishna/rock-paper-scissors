@@ -14,6 +14,10 @@ const rpsButtons = document.querySelectorAll(".rps_img__container");
 const gameStartDiv = document.querySelector("#game-start-div");
 const gameResultDiv = document.querySelector("#game-result-div");
 
+const mainEl =   document.querySelector('main');
+const hurrayEl = document.querySelector('.hurray__container');
+const buttonDiv = document.querySelector('.button__div');
+
 // Game result div components
 
 const userPickDiv = document.getElementById("user__pick");
@@ -138,3 +142,10 @@ function showWinner(gameResult) {
     winningRings.forEach((ring) => ring.classList.add("won"));
   }
 }
+
+
+winPageLink.addEventListener("click", () => {
+  hurrayEl.classList.remove("hidden")
+  buttonDiv.classList.add('hidden')
+  mainEl.replaceChildren(hurrayEl)
+})
